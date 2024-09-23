@@ -827,15 +827,15 @@ Order = 20
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
         [[[parameter HPCImageName]]]
-        Label = HPC OS
+        Label = SnpArcher OS
         ParameterType = Cloud.Image
         Config.OS = linux
         #itv
-        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLInux-HPC-Compute-Image/versions/1.0.0"
+        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLInux-HPC-snparcher-Image/versions/2.0.0"
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
         [[[parameter HTCImageName]]]
-        Label = HTC OS
+        Label = Pipeasm OS
         ParameterType = Cloud.Image
         Config.OS = linux
         #itv
