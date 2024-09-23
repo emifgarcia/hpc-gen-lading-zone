@@ -289,7 +289,7 @@ Order = 10
         Label = Login node VM Type
         Description = The VM type for login nodes.
         ParameterType = Cloud.MachineType
-        DefaultValue = Standard_D2ads_v5
+        DefaultValue = Standard_D4ads_v5
 
         [[[parameter HPCMachineType]]]
         Label = HPC VM Type
