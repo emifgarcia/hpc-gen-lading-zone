@@ -62,8 +62,8 @@ Autoscale = $Autoscale
         # May be used to identify the ID in cluster-init scripts
         cluster.identities.default = $ManagedIdentity
 
-        [[[cluster-init cyclecloud/slurm:default:3.0.7]]]
-            [[[cluster-init genomica-proj:default:1.0.0]]]
+        #[[[cluster-init cyclecloud/slurm:default:3.0.7]]]
+        [[[cluster-init genomica-proj:default:1.0.0]]]
         Optional = true
 
         [[[volume boot]]]
