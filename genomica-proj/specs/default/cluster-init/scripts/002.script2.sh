@@ -22,3 +22,4 @@ duration="${hours}:${minutes}:${seconds}"
 echo "script finished."
 echo "Execution time (hh:mm:ss): $duration"
 
+

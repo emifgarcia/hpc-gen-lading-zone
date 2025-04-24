@@ -3,7 +3,7 @@
 project_folder_name="genomica-proj"
 # check locker name:
 #cyclecloud locker list
-locker_name="Genomica-storage"
+locker_name="Genomics-storage"
 
 echo "Uploading project $project_folder_name to locker $locker_name"
 
