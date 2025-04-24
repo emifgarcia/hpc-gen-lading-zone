@@ -182,14 +182,15 @@ Autoscale = $Autoscale
         MachineType = $loginMachineType
         ImageName = $SchedulerImageName
         #itv
-        SubnetId = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Network/virtualNetworks/azusdstivnet005/subnets/snet-login-nodes"
-        #SubnetId = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdsnetrg/providers/Microsoft.Network/virtualNetworks/azusdshpcvnet/subnets/azusdshpcsnet"
+        #SubnetId = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Network/virtualNetworks/azusdstivnet005/subnets/snet-login-nodes"
+        SubnetId = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdsnetrg/providers/Microsoft.Network/virtualNetworks/azusdshpcvnet/subnets/azusdshpcsnet"
 
         [[[network-interface vm-login-node-cluster1-nic2]]]
             #NetworkInterfaceId = ""
         #itv
-        PrivateIp = "10.20.250.133 "
+        #PrivateIp = "10.20.250.133"
         #PrivateIp = "10.20.3.60"
+        PrivateIp = "10.20.3.58"
 
         [[[cluster-init cyclecloud/slurm:login:3.0.7]]]
         [[[configuration]]]
@@ -260,6 +261,23 @@ Autoscale = $Autoscale
         slurm.default_partition = false
         slurm.hpc = false
         slurm.partition = high_gen
+        
+    #ultra_gen
+    #itv
+    [[nodearray ultra_gen]]
+    Extends = nodearraybase
+    MachineType = $ultra_genMachineType
+    ImageName = $ultra_genImageName
+    MaxCoreCount = $Maxultra_genExecuteCoreCount
+    Azure.MaxScalesetSize = $ultra_genMaxScalesetSize
+    AdditionalClusterInitSpecs = $ultra_genClusterInitSpecs
+    EnableNodeHealthChecks = $EnableNodeHealthChecks
+
+
+        [[[configuration]]]
+        slurm.default_partition = false
+        slurm.hpc = false
+        slurm.partition = ultra_gen
 
     [[nodearray hpc]]
     Extends = nodearraybase
@@ -369,6 +387,14 @@ Order = 10
         #itv
         DefaultValue = Standard_E64as_v5
 
+        #ultra_gen
+        [[[parameter ultra_genMachineType]]]
+        Label = ultra_gen VM Type
+        Description = The VM type for ultra_gen execute nodes
+        ParameterType = Cloud.MachineType
+        #itv
+        DefaultValue = Standard_M64s_v2
+
 
         [[[parameter HPCMachineType]]]
         Label = HPC VM Type
@@ -427,6 +453,15 @@ Order = 10
         Config.MinValue = 1
         Config.IntegerOnly = true
 
+        #ultra_gen
+        [[[parameter Maxultra_genExecuteCoreCount]]]
+        Label = Max ultra_gen Cores
+        Description = The total number of ultra_gen execute cores to start
+        DefaultValue = 128
+        Config.Plugin = pico.form.NumberTextBox
+        Config.MinValue = 1
+        Config.IntegerOnly = true
+
         [[[parameter MaxHPCExecuteCoreCount]]]
         Label = Max HPC Cores
         Description = The total number of HPC execute cores to start
@@ -472,6 +507,15 @@ Order = 10
         #high_gen
         [[[parameter high_genMaxScalesetSize]]]
         Label = high_gen Max VMs per VMSS
+        Description = The maximum number of VMs created per VM Scaleset e.g. switch in Slurm.
+        DefaultValue = 100
+        Config.Plugin = pico.form.NumberTextBox
+        Config.MinValue = 1
+        Config.IntegerOnly = true
+
+        #ultra_gen
+        [[[parameter ultra_genMaxScalesetSize]]]
+        Label = ultra_gen Max VMs per VMSS
         Description = The maximum number of VMs created per VM Scaleset e.g. switch in Slurm.
         DefaultValue = 100
         Config.Plugin = pico.form.NumberTextBox
@@ -533,8 +577,8 @@ Order = 10
         ParameterType = Azure.Subnet
         Required = True
         #itv
-        DefaultValue = "azusdstirg006/azusdstivnet005/snet-compute"
-        #DefaultValue = "azusdsnetrg/azusdshpcvnet/azusdshpcsnet003"
+        #DefaultValue = "azusdstirg006/azusdstivnet005/snet-compute"
+        DefaultValue = "azusdsnetrg/azusdshpcvnet/azusdshpcsnet003"
 
     [[parameters High Availability]]
     Order = 50
@@ -735,8 +779,8 @@ Order = 15
         Description = The IP address or hostname of the additional mount. Also accepts a list comma-separated addresses, for example, to mount a frontend load-balanced Azure HPC Cache.
         Config.ParameterType = String
         #itv
-        DefaultValue = "10.20.250.196"
-        #DefaultValue = "10.20.3.132"
+        #DefaultValue = "10.20.250.196"
+        DefaultValue = "10.20.3.132"
         Conditions.Excluded := AdditionalNFS1 isnt true
 
         [[[parameter AdditionalNFSMountPoint1]]]
@@ -749,8 +793,8 @@ Order = 15
         Label = Export Path
         Description = The path exported by the file system
         #itv
-        DefaultValue = "/azusdstivol002"
-        #DefaultValue = "/azusdshpcvol002"
+        #DefaultValue = "/azusdstivol002"
+        DefaultValue = "/azusdshpcvol002"
 
         Conditions.Excluded := AdditionalNFS1 isnt true
 
@@ -807,8 +851,8 @@ Order = 20
         Description = The credentials for the cloud provider
         ParameterType = Cloud.Credentials
         #itv
-        DefaultValue = "Genomica - Default credentials"
-        #DefaultValue = "Genomics - Default credentials"
+        #DefaultValue = "Genomica - Default credentials"
+        DefaultValue = "Genomics - Default credentials"
 
         [[[parameter ManagedIdentity]]]
         Label = Managed Id
@@ -862,16 +906,16 @@ Order = 20
         Label = Slurm DBD URL
         Description = URL of the database to use for Slurm job accounting
         #itv
-        DefaultValue = "azusdstimysql.mysql.database.azure.com"
-        #DefaultValue = "azusdshpcmysql.mysql.database.azure.com"
+        #DefaultValue = "azusdstimysql.mysql.database.azure.com"
+        DefaultValue = "azusdshpcmysql.mysql.database.azure.com"
         Conditions.Excluded := configuration_slurm_accounting_enabled isnt true
 
         [[[parameter configuration_slurm_accounting_storageloc]]]
         Label = Database name
         Description = Database name to store slurm accounting records
         #itv
-        DefaultValue = "genomica"
-        #DefaultValue = "genomics"
+        #DefaultValue = "genomica"
+        DefaultValue = "genomics"
         Conditions.Excluded := configuration_slurm_accounting_enabled isnt true
 
         [[[parameter configuration_slurm_accounting_user]]]
@@ -886,7 +930,8 @@ Order = 20
         Description = Password for Slurm DBD admin
         ParameterType = Password
         #itv
-        DefaultValue = "MRjDC2FHVN9i0sgPR8i0"
+        #DefaultValue = "MRjDC2FHVN9i0sgPR8i0"
+        DefaultValue = "QUJHv6zcKLaJQRrgCxUs"
         Conditions.Excluded := configuration_slurm_accounting_enabled isnt true
 
         [[[parameter configuration_slurm_accounting_certificate_url]]]
@@ -992,6 +1037,15 @@ Order = 20
         DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
+        #ultra_gen
+        [[[parameter ultra_genImageName]]]
+        Label = ultra_gen OS
+        ParameterType = Cloud.Image
+        Config.OS = linux
+        #itv
+        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
+
 
         [[[parameter HPCImageName]]]
         Label = HPC OS
@@ -1051,6 +1105,14 @@ Order = 20
         Label = high_gen Cluster-Init
         DefaultValue = =undefined
         Description = Cluster init specs to apply to high_gen execute nodes
+        ParameterType = Cloud.ClusterInitSpecs
+
+        #ultra_gen
+        #itv
+        [[[parameter ultra_genClusterInitSpecs]]]
+        Label = ultra_gen Cluster-Init
+        DefaultValue = =undefined
+        Description = Cluster init specs to apply to ultra_gen execute nodes
         ParameterType = Cloud.ClusterInitSpecs
 
 
