@@ -182,15 +182,15 @@ Autoscale = $Autoscale
         MachineType = $loginMachineType
         ImageName = $SchedulerImageName
         #itv
-        #SubnetId = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Network/virtualNetworks/azusdstivnet005/subnets/snet-login-nodes"
-        SubnetId = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdsnetrg/providers/Microsoft.Network/virtualNetworks/azusdshpcvnet/subnets/azusdshpcsnet"
+        SubnetId = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Network/virtualNetworks/azusdstivnet005/subnets/snet-login-nodes"
+        #SubnetId = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdsnetrg/providers/Microsoft.Network/virtualNetworks/azusdshpcvnet/subnets/azusdshpcsnet"
 
         [[[network-interface vm-login-node-cluster1-nic2]]]
             #NetworkInterfaceId = ""
         #itv
-        #PrivateIp = "10.20.250.133"
+        PrivateIp = "10.20.250.133"
         #PrivateIp = "10.20.3.60"
-        PrivateIp = "10.20.3.58"
+        #PrivateIp = "10.20.3.58"
 
         [[[cluster-init cyclecloud/slurm:login:3.0.7]]]
         [[[configuration]]]
@@ -577,8 +577,8 @@ Order = 10
         ParameterType = Azure.Subnet
         Required = True
         #itv
-        #DefaultValue = "azusdstirg006/azusdstivnet005/snet-compute"
-        DefaultValue = "azusdsnetrg/azusdshpcvnet/azusdshpcsnet003"
+        DefaultValue = "azusdstirg006/azusdstivnet005/snet-compute"
+        #DefaultValue = "azusdsnetrg/azusdshpcvnet/azusdshpcsnet003"
 
     [[parameters High Availability]]
     Order = 50
@@ -779,8 +779,8 @@ Order = 15
         Description = The IP address or hostname of the additional mount. Also accepts a list comma-separated addresses, for example, to mount a frontend load-balanced Azure HPC Cache.
         Config.ParameterType = String
         #itv
-        #DefaultValue = "10.20.250.196"
-        DefaultValue = "10.20.3.132"
+        DefaultValue = "10.20.250.196"
+        #DefaultValue = "10.20.3.132"
         Conditions.Excluded := AdditionalNFS1 isnt true
 
         [[[parameter AdditionalNFSMountPoint1]]]
@@ -793,8 +793,8 @@ Order = 15
         Label = Export Path
         Description = The path exported by the file system
         #itv
-        #DefaultValue = "/azusdstivol002"
-        DefaultValue = "/azusdshpcvol002"
+        DefaultValue = "/azusdstivol002"
+        #DefaultValue = "/azusdshpcvol002"
 
         Conditions.Excluded := AdditionalNFS1 isnt true
 
@@ -851,8 +851,8 @@ Order = 20
         Description = The credentials for the cloud provider
         ParameterType = Cloud.Credentials
         #itv
-        #DefaultValue = "Genomica - Default credentials"
-        DefaultValue = "Genomics - Default credentials"
+        DefaultValue = "Genomica - Default credentials"
+        #DefaultValue = "Genomics - Default credentials"
 
         [[[parameter ManagedIdentity]]]
         Label = Managed Id
@@ -906,16 +906,16 @@ Order = 20
         Label = Slurm DBD URL
         Description = URL of the database to use for Slurm job accounting
         #itv
-        #DefaultValue = "azusdstimysql.mysql.database.azure.com"
-        DefaultValue = "azusdshpcmysql.mysql.database.azure.com"
+        DefaultValue = "azusdstimysql.mysql.database.azure.com"
+        #DefaultValue = "azusdshpcmysql.mysql.database.azure.com"
         Conditions.Excluded := configuration_slurm_accounting_enabled isnt true
 
         [[[parameter configuration_slurm_accounting_storageloc]]]
         Label = Database name
         Description = Database name to store slurm accounting records
         #itv
-        #DefaultValue = "genomica"
-        DefaultValue = "genomics"
+        DefaultValue = "genomica"
+        #DefaultValue = "genomics"
         Conditions.Excluded := configuration_slurm_accounting_enabled isnt true
 
         [[[parameter configuration_slurm_accounting_user]]]
@@ -930,8 +930,8 @@ Order = 20
         Description = Password for Slurm DBD admin
         ParameterType = Password
         #itv
-        #DefaultValue = "MRjDC2FHVN9i0sgPR8i0"
-        DefaultValue = "QUJHv6zcKLaJQRrgCxUs"
+        DefaultValue = "MRjDC2FHVN9i0sgPR8i0"
+        #DefaultValue = "QUJHv6zcKLaJQRrgCxUs"
         Conditions.Excluded := configuration_slurm_accounting_enabled isnt true
 
         [[[parameter configuration_slurm_accounting_certificate_url]]]
