@@ -1,7 +1,7 @@
 #!/bin/bash
 
 template_name="Slurm-Genoma-ITV"
-template_file="/home/cyclecli_ds_usr/hpc/hpc-genoma/genomica-proj/templates/slurm-genoma-template-login-node-itv.txt"
+template_file="/home/cyclecli_ds_usr/hpc/hpc-gen-lading-zone/genomica-proj/templates/slurm-genoma-template-login-node-itv.txt"
 
 echo "Importing template $template_name from $template_file"
 
