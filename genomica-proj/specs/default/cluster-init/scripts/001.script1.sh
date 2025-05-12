@@ -19,7 +19,7 @@ chmod 777 $AZMNT
 echo "### chown"
 chown -R azureadmin:cyclecloud $AZMNT
 echo "### mount"
-mount -t aznfs -o defaults,sec=sys,vers=3,nolock,proto=tcp,nofail,_netdev azusdshpcst003.blob.core.windows.net:/azusdshpcst003/data-genomica $AZMNT
+mount -t aznfs -o defaults,sec=sys,vers=3,nolock,proto=tcp,nofail,_netdev st004tecinformacao.blob.core.windows.net:/st004tecinformacao/data-genomica $AZMNT
 
 echo "cyclecloud spec path:" $CYCLECLOUD_SPEC_PATH
 
