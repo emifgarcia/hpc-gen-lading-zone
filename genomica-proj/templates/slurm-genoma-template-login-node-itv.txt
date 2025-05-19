@@ -1016,7 +1016,8 @@ Order = 20
         ParameterType = Cloud.Image
         Config.OS = linux
         #itv
-        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        DefaultValue = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Compute/galleries/azusdstigal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        #DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
         #medium_gen
@@ -1025,7 +1026,8 @@ Order = 20
         ParameterType = Cloud.Image
         Config.OS = linux
         #itv
-        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        DefaultValue = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Compute/galleries/azusdstigal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        #DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
         #high_gen
@@ -1034,7 +1036,8 @@ Order = 20
         ParameterType = Cloud.Image
         Config.OS = linux
         #itv
-        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        DefaultValue = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Compute/galleries/azusdstigal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        #DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
         #ultra_gen
@@ -1043,7 +1046,8 @@ Order = 20
         ParameterType = Cloud.Image
         Config.OS = linux
         #itv
-        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        DefaultValue = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Compute/galleries/azusdstigal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        #DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
 
@@ -1052,7 +1056,8 @@ Order = 20
         ParameterType = Cloud.Image
         Config.OS = linux
         #itv
-        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        DefaultValue = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Compute/galleries/azusdstigal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        #DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
         [[[parameter HTCImageName]]]
@@ -1060,7 +1065,8 @@ Order = 20
         ParameterType = Cloud.Image
         Config.OS = linux
         #itv
-        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        DefaultValue = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Compute/galleries/azusdstigal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        #DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
         [[[parameter DynamicImageName]]]
@@ -1068,7 +1074,8 @@ Order = 20
         ParameterType = Cloud.Image
         Config.OS = linux
         #itv
-        DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        DefaultValue = "/subscriptions/d452ff1d-4116-4a34-bb57-4908b5535dfc/resourceGroups/azusdstirg006/providers/Microsoft.Compute/galleries/azusdstigal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
+        #DefaultValue = "/subscriptions/09addf29-d567-4494-9d05-db2491ceff53/resourceGroups/azusdshpcrg/providers/Microsoft.Compute/galleries/azusdshpcgal/images/AlmaLinux_8.10-HPC-Gen-Image/versions/1.0.0"
         Config.Filter := Package in {"cycle.image.centos7", "cycle.image.ubuntu20", "cycle.image.ubuntu22", "cycle.image.sles15-hpc", "almalinux8"}
 
         [[[parameter SchedulerClusterInitSpecs]]]
